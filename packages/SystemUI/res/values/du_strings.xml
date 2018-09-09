@@ -41,6 +41,7 @@
 
     <!-- SystemUI tuner -->
     <string name="systemui_tuner_navbar_title">Layout</string>
+    <string name="tuner_show_info_header_title">Show information header</string>
 
     <!-- Screenshot tile -->
     <string name="screenshot_abort_title">No screenshot taken</string>
