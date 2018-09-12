@@ -4578,6 +4578,13 @@ public final class Settings {
         public static final String LOCKSCREEN_INFO = "lockscreen_info";
 
         /**
+	 ** Change fonts for the system lockscreen clock widget
+	 **
+	 ** @hide
+	 **/
+        public static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+
+        /**
          * 0 - wallpaper based
          * 1 - force light
          * 2 - force dark
