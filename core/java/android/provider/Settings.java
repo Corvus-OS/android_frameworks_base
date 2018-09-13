@@ -4884,6 +4884,14 @@ public final class Settings {
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
 
         /**
+         * @hide
+         */
+        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /** @hide */
+        private static final Validator USE_OLD_MOBILETYPE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Whether to use icon pack for Recents
          * @hide
          */
@@ -5194,7 +5202,8 @@ public final class Settings {
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
             STATUS_BAR_LOGO,
-            NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE
+            NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE,
+            USE_OLD_MOBILETYPE
         };
 
         /**
@@ -5347,6 +5356,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE);
+            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
         }
 
         /**
@@ -5462,6 +5472,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE, STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION, STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE, NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE_VALIDATOR);
+            VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
         }
 
         /**
