@@ -88,6 +88,8 @@ import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.DateView;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -171,6 +173,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private int mBrightnessSlider = 2;
     private ImageView mMinBrightness;
     private ImageView mMaxBrightness;
+
+    private boolean mHideDragHandle;
 
     private PrivacyItemController mPrivacyItemController;
     private boolean mLandscape;
@@ -324,7 +328,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         Dependency.get(TunerService.class).addTunable(this,
                 QS_SHOW_AUTO_BRIGHTNESS,
                 QQS_SHOW_BRIGHTNESS_SLIDER,
-                QS_SHOW_BRIGHTNESS_BUTTONS);
+                QS_SHOW_BRIGHTNESS_BUTTONS,
+                QSFooterImpl.QS_SHOW_DRAG_HANDLE);
         updateSettings();
     }
 
@@ -440,6 +445,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
 
+        if (mHideDragHandle) {
+            qqsHeight -= mContext.getResources().getDimensionPixelSize(
+                    R.dimen.quick_qs_drag_handle_height);
+        }
         if (mBrightnessSlider != 0) {
            if (!mHeaderImageEnabled) {
                qqsHeight += mContext.getResources().getDimensionPixelSize(
@@ -510,6 +519,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             if (mHeaderImageEnabled) {
                 qsHeight += mHeaderImageHeight;
             }
+
+            if (mHideDragHandle) {
+                qsHeight -= resources.getDimensionPixelSize(
+                        R.dimen.quick_qs_drag_handle_height);
+            }
+
+            // always add the margin below the statusbar with or without image
             lp.height = Math.max(getMinimumHeight(), qsHeight);
         }
 
@@ -643,7 +659,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 mQuickQsBrightness.setVisibility(VISIBLE);
             }
         }
-        updateSystemInfoText();
     }
 
     public void disable(int state1, int state2, boolean animate) {
@@ -936,6 +951,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 break;
             case QS_SHOW_BRIGHTNESS_BUTTONS:
                 mBrightnessButton = TunerService.parseIntegerSwitch(newValue, true);
+                updateResources();
+                break;
+            case QSFooterImpl.QS_SHOW_DRAG_HANDLE:
+                mHideDragHandle =
+                        TunerService.parseIntegerSwitch(newValue, true);
                 updateResources();
                 break;
             default:
