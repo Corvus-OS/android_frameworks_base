@@ -72,6 +72,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     private static final String SHOW_SECONDS = "show_seconds";
     private static final String VISIBILITY = "visibility";
     public static final String CLOCK_SECONDS = "clock_seconds";
+    private static final String QSHEADER = "qsheader";
 
     private final CurrentUserTracker mCurrentUserTracker;
     private int mCurrentUserId;
@@ -280,6 +281,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         bundle.putBoolean(VISIBLE_BY_USER, mClockVisibleByUser);
         bundle.putBoolean(SHOW_SECONDS, mShowSeconds);
         bundle.putInt(VISIBILITY, getVisibility());
+        bundle.putBoolean(QSHEADER, mQsHeader);
 
         return bundle;
     }
@@ -303,6 +305,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         if (bundle.containsKey(VISIBILITY)) {
             setVisibility(bundle.getInt(VISIBILITY));
         }
+        mQsHeader = bundle.getBoolean(QSHEADER, false);
     }
 
     @Override
