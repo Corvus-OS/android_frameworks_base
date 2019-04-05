@@ -123,4 +123,7 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
     void setPartialScreenshot(boolean active);
+    // Used to show or hide in display fingerprint view
+    void showInDisplayFingerprintView();
+    void hideInDisplayFingerprintView();
 }

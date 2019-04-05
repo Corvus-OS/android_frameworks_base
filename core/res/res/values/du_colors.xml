@@ -22,4 +22,8 @@
 
     <!-- Themes -->
     <color name="theme_generic_semi_transparent_color">#EAFFFFFF</color>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+
 </resources>
