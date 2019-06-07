@@ -2,6 +2,7 @@ package com.android.keyguard.clocks;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.res.AccentUtils;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -20,12 +21,14 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 import com.android.keyguard.R;
+import com.android.systemui.statusbar.policy.ConfigurationController;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public class TypographicClock extends TextView {
+public class TypographicClock extends TextView implements
+        ConfigurationController.ConfigurationListener {
 
     private int mAccentColor;
     private String mDescFormat;
@@ -62,11 +65,15 @@ public class TypographicClock extends TextView {
         mResources = context.getResources();
         mHours = mResources.getStringArray(R.array.type_clock_hours);
         mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
-        mAccentColor = mResources.getColor(R.color.custom_text_clock_top_color, null);
+        mAccentColor = AccentUtils.getAccentColor(mResources
+                .getColor(R.color.custom_text_clock_top_color, null));
         refreshLockFont();
     }
 
     public void onTimeChanged() {
+        int oldColor = mAccentColor;
+        mAccentColor = AccentUtils.getAccentColor(mResources
+                .getColor(R.color.custom_text_clock_top_color, null));
         mTime.setTimeInMillis(System.currentTimeMillis());
         setContentDescription(DateFormat.format(mDescFormat, mTime));
         boolean ampm = !DateFormat.is24HourFormat(getContext());
@@ -94,11 +101,6 @@ public class TypographicClock extends TextView {
     public void onTimeZoneChanged(TimeZone timeZone) {
         mTimeZone = timeZone;
         mTime.setTimeZone(timeZone);
-    }
-
-    public void setClockColor(int i) {
-        mAccentColor = i;
-        onTimeChanged();
     }
 
     @Override
