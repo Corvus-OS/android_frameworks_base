@@ -5272,6 +5272,13 @@ public final class Settings {
         public static final String SHOW_LOCKSCREEN_ICON = "show_lockscreen_icon";
 
         /**
+         * Show lockscreen indicator text
+         *
+         * @hide
+         */
+        public static final String SHOW_LOCKSCREEN_INDICATOR_DISPLAY = "show_lockscreen_indicator_display";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5508,6 +5515,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(THEMING_SETTINGS_DASHBOARD_ICONS);
             PRIVATE_SETTINGS.add(LOCK_HIDE_STATUS_BAR);
             PRIVATE_SETTINGS.add(SHOW_LOCKSCREEN_ICON);
+            PRIVATE_SETTINGS.add(SHOW_LOCKSCREEN_INDICATOR_DISPLAY);
         }
 
         /**
