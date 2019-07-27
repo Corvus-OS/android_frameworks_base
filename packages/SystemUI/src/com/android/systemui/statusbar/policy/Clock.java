@@ -76,7 +76,6 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
     private static final String VISIBLE_BY_USER = "visible_by_user";
     private static final String SHOW_SECONDS = "show_seconds";
     private static final String VISIBILITY = "visibility";
-    private static final String QSHEADER = "qsheader";
 
     private final CurrentUserTracker mCurrentUserTracker;
     private int mCurrentUserId;
@@ -165,7 +164,6 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         bundle.putBoolean(VISIBLE_BY_USER, mClockVisibleByUser);
         bundle.putBoolean(SHOW_SECONDS, mShowSeconds);
         bundle.putInt(VISIBILITY, getVisibility());
-        bundle.putBoolean(QSHEADER, mQsHeader);
 
         return bundle;
     }
@@ -189,7 +187,6 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         if (bundle.containsKey(VISIBILITY)) {
             setVisibility(bundle.getInt(VISIBILITY));
         }
-        mQsHeader = bundle.getBoolean(QSHEADER, false);
     }
 
     @Override
