@@ -85,6 +85,15 @@ public class ThemeAccentUtils {
 	"com.google.android.apps.gms.theme.elegant", //8
     };
 
+    private static final String[] SHISHUNIGHTS_THEMES = {
+        "com.android.system.theme.shishunights", // 0
+        "com.android.settings.theme.shishunights", // 1
+        "com.android.systemui.theme.shishunights", // 2
+        "com.android.settings.intelligence.theme.shishunights", // 3
+        "com.google.android.apps.wellbeing.theme.shishunights", // 4
+        "com.android.documentsui.theme.shishunights", // 5
+    };
+
     private static final String[] QS_TILE_THEMES = {
         "default_qstile", // 0
         "com.android.systemui.qstile.squircle", // 1
@@ -197,6 +206,18 @@ public class ThemeAccentUtils {
         return themeInfo != null && themeInfo.isEnabled();
      }
 
+    // Check for the extended system theme
+    public static boolean isUsingShishuNightsTheme(IOverlayManager om, int userId) {
+        OverlayInfo themeInfo = null;
+        try {
+            themeInfo = om.getOverlayInfo(SHISHUNIGHTS_THEMES[0],
+                    userId);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return themeInfo != null && themeInfo.isEnabled();
+     }
+
     public static void setLightDarkTheme(IOverlayManager om, int userId, boolean useDarkTheme) {
         for (String theme : DARK_THEMES) {
                 try {
@@ -229,6 +250,17 @@ public class ThemeAccentUtils {
                     om.setEnabled(theme,
                         useExtendedTheme, userId);
                   //  unfuckBlackWhiteAccent(om, userId);
+                } catch (RemoteException e) {
+                    Log.w(TAG, "Can't change theme", e);
+                }
+        }
+    }
+
+    public static void setLightShishuNightsTheme(IOverlayManager om, int userId, boolean useShishuNightsTheme) {
+        for (String theme : SHISHUNIGHTS_THEMES) {
+                try {
+                    om.setEnabled(theme,
+                        useShishuNightsTheme, userId);
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
