@@ -5837,6 +5837,12 @@ public final class Settings {
         private static final Validator PULSE_BRIGHTNESS_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+        * FOD icon picker
+        * @hide
+        */
+        public static final String FOD_ICON = "fod_icon";
+
+        /**
          * User definable value of aod screen brightness
          *
          * @hide
