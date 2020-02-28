@@ -131,7 +131,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<LteTile> lteTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
-            Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
