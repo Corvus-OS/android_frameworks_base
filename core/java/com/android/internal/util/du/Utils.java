@@ -81,6 +81,18 @@ public class Utils {
         return isPackageInstalled(context, pkg, true);
     }
 
+    public static boolean isPackageAvailable(Context context, String packageName) {
+        final PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            int enabled = pm.getApplicationEnabledSetting(packageName);
+            return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+                enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+        } catch (NameNotFoundException e) {
+            return false;
+        }
+    }
+
     public static boolean isAvailableApp(String packageName, Context context) {
        Context mContext = context;
        final PackageManager pm = mContext.getPackageManager();
@@ -272,6 +284,7 @@ public class Utils {
         int mode = mUiModeManager.getNightMode();
         return (mode == UiModeManager.MODE_NIGHT_YES);
     }
+<<<<<<< HEAD:core/java/com/android/internal/util/du/Utils.java
 
     // Method to detect navigation bar is in use
     public static boolean hasNavigationBar(Context context) {
@@ -308,4 +321,6 @@ public class Utils {
             return hasNavigationBar == 1;
         }
     }
+=======
+>>>>>>> 4855482ea895... AEXUtils: Add isPackageAvailable method:core/java/com/android/internal/util/aospextended/AEXUtils.java
 }
