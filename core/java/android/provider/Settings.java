@@ -6507,6 +6507,11 @@ public final class Settings {
         public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
 
         /**
+         * Weather to enable statusbar dual row
+         */
+        public static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6809,7 +6814,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_SHADOW);
-            PRIVATE_SETTINGS.add(STATUS_BAR_DAYLIGHT_HEADER_PACK);
+            PRIVATE_SETTINGS.add(STATUS_BAR_DAYLIGHT_HEADER_PACK);34bd841d72a5488c7e30d840a9a1708162f5ed42
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_PROVIDER);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(STATUS_BAR_FILE_HEADER_IMAGE);
