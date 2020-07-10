@@ -333,6 +333,9 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
+        if (mHandler == null)
+            mHandler = new Handler();
+
         if (!mAttached) {
             mAttached = true;
             IntentFilter filter = new IntentFilter();
@@ -353,8 +356,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             }
             mCurrentUserTracker.startTracking();
             mCurrentUserId = mCurrentUserTracker.getCurrentUserId();
-
-            mHandler = new Handler();
         }
 
         // NOTE: It's safe to do these after registering the receiver since the receiver always runs
@@ -397,6 +398,10 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+
+            if (mHandler == null)
+                mHandler = new Handler();
+
             if (mHandler == null) {
                 Log.e(TAG,
                         "Received intent, but handler is null - still attached to window? Window "
