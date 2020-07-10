@@ -152,6 +152,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setClipToPadding(false);
         mCollapsedView = collapsedView;
         setFocusable(true);
+        setActiveColor(mContext);
     }
 
     private void setActiveColor(Context context) {
@@ -282,6 +283,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setLongClickable(state.handlesLongClick);
         mIcon.setIcon(state, allowAnimations);
         setContentDescription(state.contentDescription);
+        setActiveColor(mContext);
 
         mAccessibilityClass =
                 state.state == Tile.STATE_UNAVAILABLE ? null : state.expandedAccessibilityClassName;
