@@ -588,6 +588,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private VisualizerView mVisualizerView;
 
+    private VolumePluginManager mVolumePluginManager;
+
     private boolean mWallpaperSupportsAmbientMode;
 
     // LS visualizer on Ambient Display
@@ -818,6 +820,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mFalsingManager = Dependency.get(FalsingManager.class);
         mWallpaperSupported =
                 mContext.getSystemService(WallpaperManager.class).isWallpaperSupported();
+        mVolumePluginManager = new VolumePluginManager(mContext, mHandler);
 
         // Connect in to the status bar manager service
         mCommandQueue = getComponent(CommandQueue.class);

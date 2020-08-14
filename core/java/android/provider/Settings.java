@@ -6524,6 +6524,12 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
         /**
+         * Holds current enabled volume panel implementation
+         * @hide
+         */
+        public static final String SYSTEMUI_PLUGIN_VOLUME = "systemui_plugin_volume";
+
+        /**
          * Network traffic inactivity threshold (default is 1 kBs)
          * @hide
          */
@@ -7194,6 +7200,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_SOUND);
             PRIVATE_SETTINGS.add(UNLOCK_SOUND);
             PRIVATE_SETTINGS.add(SIP_RECEIVE_CALLS);
+            PRIVATE_SETTINGS.add(SYSTEMUI_PLUGIN_VOLUME);
             PRIVATE_SETTINGS.add(SIP_CALL_OPTIONS);
             PRIVATE_SETTINGS.add(SIP_ALWAYS);
             PRIVATE_SETTINGS.add(SIP_ADDRESS_ONLY);
