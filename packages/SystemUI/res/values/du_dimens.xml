@@ -135,4 +135,5 @@
     <!-- Ending padding for custom status bar elements -->
     <dimen name="status_bar_end_padding">1dp</dimen>
 
+    <dimen name="qs_tiles_extra_margin_top">2dp</dimen>
 </resources>

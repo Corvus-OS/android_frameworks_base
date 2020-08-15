@@ -5986,6 +5986,16 @@ public final class Settings {
         private static final Validator AMBIENT_LIGHT_REPEAT_DIRECTION_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Miui Brightness
+         * @hide
+         */
+        public static final String BRIGHTNESS_SLIDER_QS_UNEXPANDED = "brightness_slider_qs_unexpanded";
+
+        /** @hide */
+        private static final Validator BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR = new
+                SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+
+        /**
          * Whether to show arrow keys in navigation bar
          * @hide
          */
@@ -7263,6 +7273,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
             PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
+            PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_QS_UNEXPANDED);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_REPEAT_DIRECTION);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
@@ -7491,6 +7502,7 @@ public final class Settings {
             VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
+            VALIDATORS.put(BRIGHTNESS_SLIDER_QS_UNEXPANDED, BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_ARROW_KEYS,
                     NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
             VALIDATORS.put(CUSTOM_BUTTON_BRIGHTNESS,

@@ -46,5 +46,9 @@
     
     <!-- Color of the FOD view -->
     <color name="config_fodColorBackground">#20000000</color>
-    
+
+    <color name="brightness_slider_progress">#FFFFFF</color>
+    <color name="brightness_slider_background">#99FFFFFF</color>
+    <color name="brightness_slider_icons">#00FFFFFF</color>
+    <color name="qs_drag_handle_color">#66e5e5e5</color>    
 </resources>
